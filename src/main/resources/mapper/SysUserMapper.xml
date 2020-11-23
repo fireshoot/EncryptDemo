@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.encrypt.encryptdemo.dao.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.mybatis.encrypt.encryptdemo.model.SysUser">
+    <!--@mbg.generated-->
+    <!--@Table sys_user-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" typeHandler="com.mybatis.encrypt.encryptdemo.handler.FieldEncryptHandler"/>
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone_numer" jdbcType="VARCHAR" property="phoneNumer" typeHandler="com.mybatis.encrypt.encryptdemo.handler.FieldEncryptHandler"/>
+    <result column="last_reset_password_time" jdbcType="TIMESTAMP" property="lastResetPasswordTime" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="update_at" jdbcType="TIMESTAMP" property="updateAt" />
+    <result column="deleted" jdbcType="SMALLINT" property="deleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, `status`, `password`, phone_numer, last_reset_password_time, create_at, 
+    update_at, deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sys_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mybatis.encrypt.encryptdemo.model.SysUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_user (`name`, `status`, `password`, 
+      phone_numer, last_reset_password_time, create_at, 
+      update_at, deleted)
+    values (#{name,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, #{password,jdbcType=VARCHAR}, 
+      #{phoneNumer,jdbcType=VARCHAR}, #{lastResetPasswordTime,jdbcType=TIMESTAMP}, #{createAt,jdbcType=TIMESTAMP}, 
+      #{updateAt,jdbcType=TIMESTAMP}, #{deleted,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mybatis.encrypt.encryptdemo.model.SysUser" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="phoneNumer != null">
+        phone_numer,
+      </if>
+      <if test="lastResetPasswordTime != null">
+        last_reset_password_time,
+      </if>
+      <if test="createAt != null">
+        create_at,
+      </if>
+      <if test="updateAt != null">
+        update_at,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR, typeHandler=com.mybatis.encrypt.encryptdemo.handler.FieldEncryptHandler},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumer != null">
+        #{phoneNumer,jdbcType=VARCHAR, typeHandler=com.mybatis.encrypt.encryptdemo.handler.FieldEncryptHandler},
+      </if>
+      <if test="lastResetPasswordTime != null">
+        #{lastResetPasswordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mybatis.encrypt.encryptdemo.model.SysUser">
+    <!--@mbg.generated-->
+    update sys_user
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNumer != null">
+        phone_numer = #{phoneNumer,jdbcType=VARCHAR},
+      </if>
+      <if test="lastResetPasswordTime != null">
+        last_reset_password_time = #{lastResetPasswordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createAt != null">
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null">
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mybatis.encrypt.encryptdemo.model.SysUser">
+    <!--@mbg.generated-->
+    update sys_user
+    set `name` = #{name,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=SMALLINT},
+      `password` = #{password,jdbcType=VARCHAR},
+      phone_numer = #{phoneNumer,jdbcType=VARCHAR},
+      last_reset_password_time = #{lastResetPasswordTime,jdbcType=TIMESTAMP},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
