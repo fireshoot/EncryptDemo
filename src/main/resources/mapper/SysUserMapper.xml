@@ -140,4 +140,15 @@
       deleted = #{deleted,jdbcType=SMALLINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+    <insert id="insertXX">
+        insert sys_user(name, status, password, phone_numer, last_reset_password_time, create_at, update_at, deleted)
+        values (#{name,jdbcType=VARCHAR, typeHandler=com.mybatis.encrypt.encryptdemo.handler.FieldEncryptHandler},
+                #{status,jdbcType=SMALLINT},
+                #{password,jdbcType=VARCHAR},
+                #{phoneNumer,jdbcType=VARCHAR, typeHandler=com.mybatis.encrypt.encryptdemo.handler.FieldEncryptHandler},
+                #{lastResetPasswordTime,jdbcType=TIMESTAMP},
+                #{createAt,jdbcType=TIMESTAMP},
+                #{updateAt,jdbcType=TIMESTAMP},
+                #{deleted,jdbcType=SMALLINT})
+    </insert>
 </mapper>

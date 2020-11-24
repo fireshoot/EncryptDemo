@@ -41,7 +41,9 @@
         <!--字段驼峰转换-->
         <setting name="mapUnderscoreToCamelCase" value="true" />
     </settings>
+
     <typeHandlers>
         <typeHandler handler="com.mybatis.encrypt.encryptdemo.handler.FieldEncryptHandler" jdbcType="VARCHAR" javaType="String"/>
     </typeHandlers>
+
 </configuration>

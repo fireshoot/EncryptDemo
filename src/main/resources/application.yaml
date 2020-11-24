@@ -3,9 +3,9 @@ spring:
     date-format:  yyyy-MM-dd HH:mm:ss
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: yangxin666
+    password: yyyyy
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://111.230.203.181:3306/driving_school?serverTimezone=Asia/Shanghai&allowMultiQueries=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://111.xxx.xxx.181:3306/driving_school?serverTimezone=Asia/Shanghai&allowMultiQueries=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
     username: root
 
 mybatis:
